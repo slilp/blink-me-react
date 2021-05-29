@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import GuestLayout from "./layouts/Guest";
+import Routes from "./layouts/Route";
 import SuspenseWithChunkError from "./components/SuspenseWithChunkError";
 import PageLoader from "./components/PageLoader";
 
@@ -11,7 +11,7 @@ export default class App extends Component {
       <Switch>
         <SuspenseWithChunkError fallback={<PageLoader></PageLoader>}>
           <Route path="/">
-            <GuestLayout></GuestLayout>
+            <Routes></Routes>
           </Route>
         </SuspenseWithChunkError>
       </Switch>
