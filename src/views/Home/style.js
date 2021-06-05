@@ -1,78 +1,31 @@
-import styled from "styled-components"
+import styled from "styled-components";
 import { sm } from "../../config/break-point";
+import ReactBg from "../../style/img/tothemoon.jpg";
 
-export const MainContainer = styled.div`
-  max-width: 1920px;
-`;
-
-export const Page = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const BigText = styled.h1`
-  font-size: ${(props) => (props.size ? `${props.size}rem` : "4rem")};
-  text-align: ${(props) => (props.center ? "center" : null)};
-  margin: 0;
-`;
-
-export const DescriptionText = styled.h3`
-  font-weight: ${(props) => (props.fontWeight ? props.fontWeight : "lighter")};
-  text-align: center;
-  margin: 0.5rem;
-`;
-
-export const MiddleText = styled.h2`
-  font-weight: ${(props) => (props.fontWeight ? props.fontWeight : "lighter")};
-  text-align: center;
-  margin: 0.5rem;
-`;
-
-export const Container = styled.div`
-  font-family: "Rubik";
-  color: ${(props) => (props.color ? props.color : "black")};
-  background: ${(props) => (props.bg ? props.bg : "white")};
-  padding: ${(props) => (props.padding ? props.padding : "2rem")};
-`;
-
-export const TopSection = styled(Container)`
-  display: flex;
-  flex-direction: column;
-  font-family: "Rubik";
-  @media (min-width: ${sm}) {
-    flex-direction: row;
+export const ReactContent = styled.div`
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    background-color: #f8f8f8;
   }
-  padding-bottom: 4rem;
 `;
 
-export const Section = styled.div`
-  flex: 1;
-  margin: 1rem;
-  text-align: ${(props) => (props.center ? "center" : null)};
+export const Icon = styled.img`
+  width: ${(props) => (props.width ? props.width : "200px")};
+  height: ${(props) => (props.height ? props.height : "200px")};
 `;
 
-export const TopImage = styled.img`
+export const LearnMoreText = styled.p`
+  font-family: "Rubik";
   text-align: center;
-  width: 40%;
-  height: 100%;
+  font-size: 1.25rem;
+  color: #116dff;
+  &:hover {
+    color: #88b6ff;
+  }
 `;
 
-export const Border = styled.div`
-  height: 0.25rem;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(10, 10, 244, 1) 0%,
-    rgba(0, 212, 255, 1) 100%
-  );
-  width: 50%;
-  margin: auto;
-`;
-
-export const StatrBtn = styled.button`
+export const MyBigButton = styled.button`
   font-size: 1.25rem;
   background-color: #116dff;
   color: white;
@@ -80,20 +33,47 @@ export const StatrBtn = styled.button`
   padding: 1rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  font-weight: bold;
   border: none;
   cursor: pointer;
+  font-family: "Rubik";
+  transition: 0.2s;
   &:hover {
     background-color: #4086f6;
     transform: translateY(-2px);
   }
 `;
 
-export const Flex = styled.div`
-  display: flex;
-  font-family: "Rubik";
-  flex-direction: column;
-  @media (min-width: ${sm}) {
-    flex-direction: row;
+export const BorderBlue = styled.div`
+  background: linear-gradient(
+    180deg,
+    hsla(229deg, 100%, 67%, 0.1),
+    transparent 3rem
+  );
+
+  height: 5rem;
+`;
+
+export const ExampleImg = styled.img`
+  border-radius: 15px;
+  height: 15rem;
+  width: 100%;
+  margin: auto;
+  cursor: pointer;
+  background-image: url("https://lh3.googleusercontent.com/furN3VPqhmfMvpzbwhgx8LWQjyeI--2b3GwldMuiHWp7GwWgJOiqQUDJCki0fewfxbvIxUZr8H62pfdOeE-Eax-Fp3Y0S_8Ki31ppTY=s550");
+  &:hover {
+    transform: translateY(-2px);
   }
+`;
+
+export const Footer = styled.div`
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+  padding-top: 7.5rem;
+  padding-bottom: 7.5rem;
+  background-image: url(${ReactBg});
 `;

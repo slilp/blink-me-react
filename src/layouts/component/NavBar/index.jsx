@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, NavDropdown, Container } from "react-bootstrap";
-import { FcHome, FcLike, FcIdea, FcMinus } from "react-icons/fc";
+import { FcHome, FcLike, FcIdea } from "react-icons/fc";
 import { NavMain, Logo, NavMenu, NavDropdownMenu } from "./styles";
 
 export default class NavBar extends Component {
@@ -16,26 +16,22 @@ export default class NavBar extends Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end">
             <NavMain>
-              <NavMenu className="mr-0 mr-md-5" to="/">
+              <NavMenu className="pr-md-4 p-3" to="/">
                 <FcHome className="mr-2"></FcHome>Home
               </NavMenu>
-              <NavMenu className="mr-0 mr-md-5" to="/ui">
+              <NavMenu className="pr-md-4 p-3" to="/ui">
                 <FcLike className="mr-2"></FcLike>User Interface - UI
               </NavMenu>
-              <NavDropdown>
+              <NavDropdown className="order-1 order-md-0 d-md-inline-flex align-items-center">
                 <NavDropdown.Item className="text-center">
-                  <NavDropdownMenu to="/classic">
-                    <FcMinus className="mr-2"></FcMinus>Classic
-                  </NavDropdownMenu>
+                  <NavDropdownMenu to="/classic">React Classic</NavDropdownMenu>
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item className="text-center">
-                  <NavDropdownMenu to="/hook">
-                    <FcMinus className="mr-2"></FcMinus>Hook
-                  </NavDropdownMenu>
+                  <NavDropdownMenu to="/hook">React Hook</NavDropdownMenu>
                 </NavDropdown.Item>
               </NavDropdown>
-              <NavMenu to="/react">
+              <NavMenu to="/react" className="pr-md-4 p-3">
                 <FcIdea className="mr-2"></FcIdea>React
               </NavMenu>
             </NavMain>
