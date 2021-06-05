@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLocation, Switch } from "react-router-dom";
+import { useLocation, Switch, Redirect } from "react-router-dom";
 import GuestLayoutRoute from "../Guest";
 import LayoutTwoRoute from "../LayoutTwo";
 import LayoutOneRoute from "../LayoutOne";
@@ -15,7 +15,7 @@ function Routes() {
 
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
-      if (prop.layout === 'LayoutOne') {
+      if (prop.layout === "LayoutOne") {
         return (
           <LayoutOneRoute
             component={prop.component}
@@ -24,7 +24,7 @@ function Routes() {
             key={key}
           />
         );
-      } else  if (prop.layout === 'LayoutTwo') {
+      } else if (prop.layout === "LayoutTwo") {
         return (
           <LayoutTwoRoute
             component={prop.component}
@@ -46,7 +46,12 @@ function Routes() {
     });
   };
 
-  return <Switch>{getRoutes(routes)}</Switch>;
+  return (
+    <Switch>
+      {getRoutes(routes)}
+      <Redirect to="/no"></Redirect>
+    </Switch>
+  );
 }
 
 export default Routes;

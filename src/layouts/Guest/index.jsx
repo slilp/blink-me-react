@@ -1,17 +1,11 @@
-import React  from "react";
+import React from "react";
 import { Route } from "react-router-dom";
 
 const GuestLayout = ({ children }) => {
-  return (
-    <div>
-      LAYOUT ONE
-      {children}
-    </div>
-  );
+  return <div>{children}</div>;
 };
 
 function GuestLayoutRoute({ component: Component, ...rest }) {
-
   return (
     <Route
       {...rest}
