@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch } from "react-router-dom";
 import Routes from "./layouts/Route";
 import NavBar from "./layouts/component/NavBar";
+import Footer from "./layouts/component/Footer";
 import SuspenseWithChunkError from "./components/SuspenseWithChunkError";
 import PageLoader from "./components/PageLoader";
 
@@ -16,6 +17,7 @@ export default class App extends Component {
             <Routes></Routes>
           </SuspenseWithChunkError>
         </Switch>
+        <Footer></Footer>
       </>
     );
   }

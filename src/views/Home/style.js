@@ -59,7 +59,10 @@ export const ExampleImg = styled.img`
   width: 100%;
   margin: auto;
   cursor: pointer;
-  background-image: url("https://lh3.googleusercontent.com/furN3VPqhmfMvpzbwhgx8LWQjyeI--2b3GwldMuiHWp7GwWgJOiqQUDJCki0fewfxbvIxUZr8H62pfdOeE-Eax-Fp3Y0S_8Ki31ppTY=s550");
+  background-image: ${(props) =>
+    props.img
+      ? `url(${props.img})`
+      : `url("https://lh3.googleusercontent.com/furN3VPqhmfMvpzbwhgx8LWQjyeI--2b3GwldMuiHWp7GwWgJOiqQUDJCki0fewfxbvIxUZr8H62pfdOeE-Eax-Fp3Y0S_8Ki31ppTY=s550")`};
   &:hover {
     transform: translateY(-2px);
   }

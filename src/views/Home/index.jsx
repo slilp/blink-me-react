@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Container, Col, Row, FormGroup } from "react-bootstrap";
-import { Text } from "../../style/component";
+import { Container } from "react-bootstrap";
 import { FaReact } from "react-icons/fa";
 import { FiArrowRight } from "react-icons/fi";
-import { AtomIcon, ProjectIcon, UiIcon, HeartIcon } from "../../style/icons";
+import { HeartIcon } from "../../style/icons";
+import { exampleImgs, contents } from "./data.js";
 import {
   MyBigButton,
   BorderBlue,
@@ -47,41 +47,19 @@ export default class Home extends Component {
         <BorderBlue className="mt-5"></BorderBlue>
         <Container>
           <div className="row isRubik">
-            <ReactContent className="col-md-6 p-md-5 p-3">
-              <div className="text-center">
-                <Icon src={AtomIcon}></Icon>
-              </div>
-              <h6 className="text-center m-2">class component</h6>
-              <h2 className="text-center m-2">React Classic</h2>
-              <p>
-                Class components can define functions that will execute during
-                the component’s lifecycle. There are a total of seven lifecycle
-                methods: componentWillMount, componentDidMount,
-                componentWillReceiveProps, shouldComponentUpdate,
-                componentWillUpdate, componentDidUpdate, and
-                componentWillUnmount.
-              </p>
-              <LearnMoreText>
-                Learn more <FiArrowRight></FiArrowRight>
-              </LearnMoreText>
-            </ReactContent>
-            <ReactContent className="col-md-6 p-md-5 p-3">
-              <div className="text-center">
-                <Icon src={UiIcon}></Icon>
-              </div>
-              <h6 className="text-center m-2">function component</h6>
-              <h2 className="text-center m-2">React Hook</h2>
-              <p>
-                Hooks are the new feature introduced in the React 16.8 version.
-                It allows you to use state and other React features without
-                writing a class. Hooks are the functions which "hook into" React
-                state and lifecycle features from function components. It does
-                not work inside classes.
-              </p>
-              <LearnMoreText>
-                Learn more <FiArrowRight></FiArrowRight>
-              </LearnMoreText>
-            </ReactContent>
+            {contents.map((content) => (
+              <ReactContent className="col-md-6 p-md-5 p-3">
+                <div className="text-center">
+                  <Icon src={content.img}></Icon>
+                </div>
+                <h6 className="text-center m-2">{content.subTopic}</h6>
+                <h2 className="text-center m-2">{content.topic}</h2>
+                <p>{content.desc}</p>
+                <LearnMoreText>
+                  Learn more <FiArrowRight></FiArrowRight>
+                </LearnMoreText>
+              </ReactContent>
+            ))}
           </div>
           <hr></hr>
           <div className="mt-5 isRubik row">
@@ -92,33 +70,21 @@ export default class Home extends Component {
             </div>
             <div className="col-md-6">
               <div className="row">
-                <div className="col-6 p-2">
-                  <ExampleImg className="img-thumbnail"></ExampleImg>
-                </div>
-                <div className="col-6 p-2">
-                  <ExampleImg className="img-thumbnail"></ExampleImg>
-                </div>
-                <div className="col-6 p-2">
-                  <ExampleImg className="img-thumbnail"></ExampleImg>
-                </div>
-                <div className="col-6 p-2">
-                  <ExampleImg className="img-thumbnail"></ExampleImg>
-                </div>
-                <div className="col-6 p-2">
-                  <ExampleImg className="img-thumbnail"></ExampleImg>
-                </div>
-                <div className="col-6 p-2">
-                  <ExampleImg className="img-thumbnail"></ExampleImg>
-                </div>
+                {exampleImgs.map((img) => (
+                  <div className="col-6 p-2">
+                    <ExampleImg
+                      img={img}
+                      className="img-thumbnail"
+                    ></ExampleImg>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </Container>
-        <Footer>
+        {/* <Footer className="mt-5">
           <h1 className="text-white">React To The Moon !</h1>
-        </Footer>
-
-        <div style={{ height: "50vh" }}></div>
+        </Footer> */}
       </>
     );
   }
