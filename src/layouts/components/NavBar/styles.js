@@ -7,8 +7,15 @@ export const NavMain = styled(Nav)`
   text-align: center;
 `;
 
-export const Logo = styled.h3`
+export const Logo = styled(Link)`
   font-family: Rubik;
+  font-size: 1.75rem;
+  color: black;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: black;
+  }
 `;
 
 export const NavMenu = styled(Link)`

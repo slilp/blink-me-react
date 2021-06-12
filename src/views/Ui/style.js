@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Container } from "react-bootstrap";
 
 export const ButtonType = styled.button`
   font-size: 1rem;
@@ -11,6 +12,7 @@ export const ButtonType = styled.button`
   width: 100%;
   background-color: white;
   border-radius: 15px;
+  border: ${(props) => (props.select ? "3px solid #4086f6" : null)};
   &:hover {
     border: 3px solid #4086f6;
   }
@@ -54,4 +56,8 @@ export const ButtonSearch = styled.button`
     background-color: #4086f6;
     color: white;
   }
+`;
+
+export const WrapContainer = styled(Container)`
+  min-height: 80vh;
 `;

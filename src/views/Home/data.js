@@ -11,8 +11,8 @@ export const exampleImgs = [
 
 export const contents = [
   {
-    topic: "class component",
-    subTopic: "React Classic",
+    topic: "React Classic",
+    subTopic: "class component",
     img: AtomIcon,
     desc: `Class components can define functions that will execute during
                 the component’s lifecycle. There are a total of seven lifecycle
@@ -20,10 +20,10 @@ export const contents = [
                 componentWillReceiveProps, shouldComponentUpdate,
                 componentWillUpdate, componentDidUpdate, and
                 componentWillUnmount.`,
-    learn: "",
+    learn: "/classic",
   },
   {
-    topic: "React Classic",
+    topic: "React Hook",
     subTopic: "function component",
     img: UiIcon,
     desc: `Hooks are the new feature introduced in the React 16.8 version.
@@ -31,6 +31,6 @@ export const contents = [
                 writing a class. Hooks are the functions which "hook into" React
                 state and lifecycle features from function components. It does
                 not work inside classes.`,
-    learn: "",
+    learn: "/hook",
   },
 ];

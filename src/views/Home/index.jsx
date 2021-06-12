@@ -4,6 +4,8 @@ import { FaReact } from "react-icons/fa";
 import { FiArrowRight } from "react-icons/fi";
 import { HeartIcon } from "../../style/icons";
 import { exampleImgs, contents } from "./data.js";
+import { Link } from "react-router-dom";
+import topicsUI from "../Ui/components/List/topics";
 import {
   MyBigButton,
   BorderBlue,
@@ -11,7 +13,7 @@ import {
   Icon,
   LearnMoreText,
   ExampleImg,
-  Footer,
+  StyledLink,
 } from "./style";
 
 export default class Home extends Component {
@@ -40,7 +42,9 @@ export default class Home extends Component {
           </h4>
           <div className="row mt-5">
             <div className="col-md-8 text-md-left text-center">
-              <MyBigButton>Start the journey</MyBigButton>
+              <Link to="/ui">
+                <MyBigButton>Start the journey</MyBigButton>
+              </Link>
             </div>
           </div>
         </Container>
@@ -49,15 +53,17 @@ export default class Home extends Component {
           <div className="row isRubik">
             {contents.map((content) => (
               <ReactContent className="col-md-6 p-md-5 p-3">
-                <div className="text-center">
-                  <Icon src={content.img}></Icon>
-                </div>
-                <h6 className="text-center m-2">{content.subTopic}</h6>
-                <h2 className="text-center m-2">{content.topic}</h2>
-                <p>{content.desc}</p>
-                <LearnMoreText>
-                  Learn more <FiArrowRight></FiArrowRight>
-                </LearnMoreText>
+                <StyledLink to={content.learn}>
+                  <div className="text-center">
+                    <Icon src={content.img}></Icon>
+                  </div>
+                  <h6 className="text-center m-2">{content.subTopic}</h6>
+                  <h2 className="text-center m-2">{content.topic}</h2>
+                  <p>{content.desc}</p>
+                  <LearnMoreText>
+                    Learn more <FiArrowRight></FiArrowRight>
+                  </LearnMoreText>
+                </StyledLink>
               </ReactContent>
             ))}
           </div>
@@ -70,12 +76,14 @@ export default class Home extends Component {
             </div>
             <div className="col-md-6">
               <div className="row">
-                {exampleImgs.map((img) => (
+                {topicsUI.slice(0, 6).map((value) => (
                   <div className="col-6 p-2">
-                    <ExampleImg
-                      img={img}
-                      className="img-thumbnail"
-                    ></ExampleImg>
+                    <Link to={value.path()}>
+                      <ExampleImg
+                        img={value.img}
+                        className="img-thumbnail"
+                      ></ExampleImg>
+                    </Link>
                   </div>
                 ))}
               </div>

@@ -6,7 +6,10 @@ const CssClassic = lazy(() => import("../views/CssClassic"));
 const MaterialUi = lazy(() => import("../views/MaterialUi"));
 const MainReact = lazy(() => import("../views/MainReact"));
 const ReactClassic = lazy(() => import("../views/ReactClassic"));
+const ReactClassicView = lazy(() => import("../views/ReactClassicViews"));
 const ReactHook = lazy(() => import("../views/ReactHook"));
+const ReactTest = lazy(() => import("../views/ReactTest"));
+const ReactTestTopics = lazy(() => import("../views/ReactTestTopics"));
 const Ui = lazy(() => import("../views/Ui"));
 const NotFound = lazy(() => import("../views/NotFound"));
 
@@ -19,23 +22,23 @@ const routes = [
     layout: "LayoutOne",
   },
   {
-    path: "/boostrap",
+    path: "/boostrap/:id",
     exact: true,
     name: "Boostrap",
     component: Boostrap,
     layout: "LayoutOne",
   },
   {
-    path: "/css",
+    path: "/css/:id",
     exact: true,
     name: "CssClassic",
     component: CssClassic,
     layout: "LayoutOne",
   },
   {
-    path: "/materialui",
+    path: "/materialui/:id",
     exact: true,
-    name: "MaterialUi ",
+    name: "MaterialUi",
     component: MaterialUi,
     layout: "LayoutOne",
   },
@@ -44,6 +47,20 @@ const routes = [
     exact: true,
     name: "MainReact",
     component: MainReact,
+    layout: "LayoutOne",
+  },
+  {
+    path: "/test",
+    exact: true,
+    name: "ReactTest",
+    component: ReactTest,
+    layout: "LayoutOne",
+  },
+  {
+    path: "/test/topic",
+    exact: true,
+    name: "ReactTestTopics",
+    component: ReactTestTopics,
     layout: "LayoutOne",
   },
   {
@@ -58,6 +75,13 @@ const routes = [
     exact: true,
     name: "ReactClassic",
     component: ReactClassic,
+    layout: "LayoutOne",
+  },
+  {
+    path: "/class/:id",
+    exact: true,
+    name: "ReactClassicView",
+    component: ReactClassicView,
     layout: "LayoutOne",
   },
   {

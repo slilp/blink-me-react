@@ -6,3 +6,6 @@ export { default as HeartIcon } from "./heart.png";
 export { default as MaterialUiIcon } from "./materialui.png";
 export { default as BoostrapIcon } from "./bootstrap.png";
 export { default as CssIcon } from "./css.png";
+export { default as ReactIcon } from "./react.png";
+export { default as StartupIcon } from "./startup.png";
+export { default as JestIcon } from "./jest.png";

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { sm } from "../../config/break-point";
 import ReactBg from "../../style/img/tothemoon.jpg";
+import { Link } from "react-router-dom";
 
 export const ReactContent = styled.div`
   cursor: pointer;
@@ -59,6 +60,7 @@ export const ExampleImg = styled.img`
   width: 100%;
   margin: auto;
   cursor: pointer;
+  background-size: contain;
   background-image: ${(props) =>
     props.img
       ? `url(${props.img})`
@@ -79,4 +81,17 @@ export const Footer = styled.div`
   padding-top: 7.5rem;
   padding-bottom: 7.5rem;
   background-image: url(${ReactBg});
+`;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+    color: black;
+  }
 `;

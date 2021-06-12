@@ -1,8 +1,18 @@
-import React from "react";
+import React, { Component } from "react";
+import { useParams } from "react-router-dom";
+import topics from "./topics";
+import { WrapContainer } from "./style";
 
 function MaterialUi() {
+  let { id } = useParams();
+  const Content = topics[id];
+
   return (
-    <div className="d-flex align-items-center">This is react classic page</div>
+    <WrapContainer className="mt-3 isRubik">
+      <p className="text-primary">Home /</p>
+      <br></br>
+      <Content></Content>
+    </WrapContainer>
   );
 }
 

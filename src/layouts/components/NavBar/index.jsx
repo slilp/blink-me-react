@@ -9,7 +9,7 @@ export default class NavBar extends Component {
       <Navbar bg="light" expand="lg">
         <Container>
           <Navbar.Brand>
-            <Logo>
+            <Logo to="/">
               BLINK.<span className="text-primary">REACT</span>
             </Logo>
           </Navbar.Brand>

@@ -1,19 +1,56 @@
 import React, { Component } from "react";
-import { Container } from "react-bootstrap";
 import { FcTemplate } from "react-icons/fc";
-import { BsSearch } from "react-icons/bs";
-import {
-  BoostrapIcon,
-  MaterialUiIcon,
-  CssIcon,
-  HeartIcon,
-} from "../../style/icons";
-import { ButtonType, Icon, InputSearch, ButtonSearch } from "./style";
-import CssClassic from "../CssClassic";
+import ListItem from "./components/List";
+import Search from "./components/Search";
+import Type from "./components/Type";
+import { WrapContainer } from "./style";
+
+const typeList = [
+  {
+    name: "ALL",
+    type: "",
+  },
+  {
+    name: "CSS",
+    type: "css",
+  },
+  {
+    name: "Boostrap",
+    type: "boostrap",
+  },
+  {
+    name: "Material-UI",
+    type: "materialui",
+  },
+];
+
 export default class Ui extends Component {
+  state = {
+    search: "",
+    searchInput: "",
+    type: "",
+  };
+
+  onChangeType = (_type) => {
+    this.setState({ type: _type });
+  };
+
+  onChangeSearch = (event) => {
+    if (!event.target.value) this.setState({ search: event.target.value });
+
+    this.setState({ searchInput: event.target.value });
+  };
+
+  onSubmitSearch = (event) => {
+    this.setState((prev) => ({
+      search: prev.searchInput.trim(),
+    }));
+    event.preventDefault();
+  };
+
   render() {
     return (
-      <Container className="isRubik">
+      <WrapContainer className="isRubik">
         <br></br>
         <div className="row">
           <div className="col-md-3">
@@ -27,45 +64,24 @@ export default class Ui extends Component {
           </div>
           <div className="col-md-9 my-auto">
             <div className="row">
-              <div className="col-md-3 col-6 p-1">
-                <ButtonType className="text-left text-md-center">
-                  <Icon src={HeartIcon} className="mr-2"></Icon>ALL
-                </ButtonType>
-              </div>
-              <div className="col-md-3 col-6 p-1">
-                <ButtonType className="text-left text-md-center">
-                  <Icon src={CssIcon} className="mr-2"></Icon>CSS
-                </ButtonType>
-              </div>
-              <div className="col-md-3 col-6 p-1">
-                <ButtonType className="text-left text-md-center">
-                  <Icon src={BoostrapIcon} className="mr-2"></Icon>
-                  Boostrap
-                </ButtonType>
-              </div>
-              <div className="col-md-3 col-6 p-1">
-                <ButtonType className="text-left text-md-center">
-                  <Icon src={MaterialUiIcon} className="mr-2"></Icon>Material-UI
-                </ButtonType>
-              </div>
+              {typeList.map((value) => (
+                <Type
+                  name={value.name}
+                  typeSelected={this.state.type}
+                  type={value.type}
+                  onChangeType={this.onChangeType}
+                ></Type>
+              ))}
             </div>
           </div>
         </div>
         <br></br>
-        <div className="mx-auto mb-5">
-          <div className="d-flex ">
-            <div className="col-8 text-right pr-0">
-              <InputSearch className="text-center"></InputSearch>
-            </div>
-            <div className="col-4 text-left pl-0">
-              <ButtonSearch className="p-2">
-                <BsSearch className="mr-2"></BsSearch>Search
-              </ButtonSearch>
-            </div>
-          </div>
-        </div>
-        <CssClassic></CssClassic>
-      </Container>
+        <Search
+          onSubmitSearch={this.onSubmitSearch}
+          onChangeSearch={this.onChangeSearch}
+        ></Search>
+        <ListItem type={this.state.type} search={this.state.search}></ListItem>
+      </WrapContainer>
     );
   }
 }
