@@ -14,6 +14,14 @@ export const CardHead = styled.div`
     props.img
       ? `url(${props.img})`
       : `url("https://lh3.googleusercontent.com/furN3VPqhmfMvpzbwhgx8LWQjyeI--2b3GwldMuiHWp7GwWgJOiqQUDJCki0fewfxbvIxUZr8H62pfdOeE-Eax-Fp3Y0S_8Ki31ppTY=s550")`};
+
+  @media (max-width: 1025px) {
+    width: 90%;
+  }
+
+  @media (max-width: 760px) {
+    width: 80%;
+  }
 `;
 
 export const CardBody = styled.div`
@@ -23,6 +31,14 @@ export const CardBody = styled.div`
   width: 75%;
   margin: auto;
   cursor: pointer;
+
+  @media (max-width: 1025px) {
+    width: 90%;
+  }
+
+  @media (max-width: 760px) {
+    width: 80%;
+  }
 `;
 
 export const Card = styled.div`

@@ -8,6 +8,7 @@ const MainReact = lazy(() => import("../views/MainReact"));
 const ReactClassic = lazy(() => import("../views/ReactClassic"));
 const ReactClassicView = lazy(() => import("../views/ReactClassicViews"));
 const ReactHook = lazy(() => import("../views/ReactHook"));
+const ReactHookViews = lazy(() => import("../views/ReactHookViews"));
 const ReactTest = lazy(() => import("../views/ReactTest"));
 const ReactTestTopics = lazy(() => import("../views/ReactTestTopics"));
 const Ui = lazy(() => import("../views/Ui"));
@@ -68,6 +69,13 @@ const routes = [
     exact: true,
     name: "ReactHook",
     component: ReactHook,
+    layout: "LayoutOne",
+  },
+  {
+    path: "/hook-topic/:id",
+    exact: true,
+    name: "ReactHookViews",
+    component: ReactHookViews,
     layout: "LayoutOne",
   },
   {

@@ -1,19 +1,26 @@
-import React, { Component } from "react";
-import { Container } from "react-bootstrap";
+import React, { useState } from "react";
 import { FcCloseUpMode } from "react-icons/fc";
-import { BsSearch } from "react-icons/bs";
-import {
-  BoostrapIcon,
-  MaterialUiIcon,
-  CssIcon,
-  HeartIcon,
-} from "../../style/icons";
-import { ButtonType, Icon, InputSearch, ButtonSearch } from "./style";
 import List from "./components/List";
+import Search from "./components/Search";
+import { WrapContainer } from "./style";
 
 export default function ReactHook() {
+  const [search, setSearch] = useState("");
+  const [searchInput, setSearchInput] = useState("");
+
+  const onChangeSearch = (event) => {
+    if (!event.target.value) setSearch(event.target.value);
+
+    setSearchInput(event.target.value);
+  };
+
+  const onSubmitSearch = (event) => {
+    setSearch(searchInput.trim());
+    event.preventDefault();
+  };
+
   return (
-    <Container className="isRubik">
+    <WrapContainer className="isRubik">
       <br></br>
       <div className="row">
         <div className="col-md-3">
@@ -27,19 +34,11 @@ export default function ReactHook() {
         </div>
       </div>
       <br></br>
-      <div className="mx-auto mb-5">
-        <div className="d-flex ">
-          <div className="col-8 text-right pr-0">
-            <InputSearch className="text-center"></InputSearch>
-          </div>
-          <div className="col-4 text-left pl-0">
-            <ButtonSearch className="p-2">
-              <BsSearch className="mr-2"></BsSearch>Search
-            </ButtonSearch>
-          </div>
-        </div>
-      </div>
-      <List></List>
-    </Container>
+      <Search
+        onSubmitSearch={onSubmitSearch}
+        onChangeSearch={onChangeSearch}
+      ></Search>
+      <List search={search}></List>
+    </WrapContainer>
   );
 }

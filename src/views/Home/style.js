@@ -56,7 +56,7 @@ export const BorderBlue = styled.div`
 
 export const ExampleImg = styled.img`
   border-radius: 15px;
-  height: 15rem;
+  height: 10rem;
   width: 100%;
   margin: auto;
   cursor: pointer;

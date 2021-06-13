@@ -10,6 +10,7 @@ export const NavMain = styled(Nav)`
 export const Logo = styled(Link)`
   font-family: Rubik;
   font-size: 1.75rem;
+  font-weight: bold;
   color: black;
   &:hover,
   &:focus {

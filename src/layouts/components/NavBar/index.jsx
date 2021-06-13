@@ -4,34 +4,48 @@ import { FcHome, FcLike, FcIdea } from "react-icons/fc";
 import { NavMain, Logo, NavMenu, NavDropdownMenu } from "./styles";
 
 export default class NavBar extends Component {
+  state = {
+    expanded: false,
+  };
+
   render() {
     return (
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="light" expand="lg" expanded={this.state.expanded}>
         <Container>
-          <Navbar.Brand>
+          <Navbar.Brand onClick={() => this.setState({ expanded: false })}>
             <Logo to="/">
               BLINK.<span className="text-primary">REACT</span>
             </Logo>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle
+            aria-controls="basic-navbar-nav"
+            onClick={() =>
+              this.setState((prev) =>
+                prev.expanded ? { expanded: false } : { expanded: "expanded" }
+              )
+            }
+          />
           <Navbar.Collapse className="justify-content-end">
             <NavMain>
-              <NavMenu className="pr-md-4 p-3" to="/">
+              <NavMenu
+                className="pr-md-4 p-3"
+                to="/"
+                onClick={() => this.setState({ expanded: false })}
+              >
                 <FcHome className="mr-2"></FcHome>Home
               </NavMenu>
-              <NavMenu className="pr-md-4 p-3" to="/ui">
+              <NavMenu
+                className="pr-md-4 p-3"
+                to="/ui"
+                onClick={() => this.setState({ expanded: false })}
+              >
                 <FcLike className="mr-2"></FcLike>User Interface - UI
               </NavMenu>
-              <NavDropdown className="order-1 order-md-0 d-md-inline-flex align-items-center">
-                <NavDropdown.Item className="text-center">
-                  <NavDropdownMenu to="/classic">React Classic</NavDropdownMenu>
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item className="text-center">
-                  <NavDropdownMenu to="/hook">React Hook</NavDropdownMenu>
-                </NavDropdown.Item>
-              </NavDropdown>
-              <NavMenu to="/react" className="pr-md-4 p-3">
+              <NavMenu
+                to="/react"
+                className="pr-md-4 p-3"
+                onClick={() => this.setState({ expanded: false })}
+              >
                 <FcIdea className="mr-2"></FcIdea>React
               </NavMenu>
             </NavMain>

@@ -6,18 +6,31 @@ export default class MainReact extends Component {
     return (
       <MainContainer className="d-flex flex-column justify-content-center align-items-center">
         <Card color="#D291BC">
-          <StyledLink to="/classic" className="d-block w-100 h-100">
-            <h2 className="isRubik">React Classic</h2>
+          <StyledLink
+            to="/classic"
+            className="d-flex align-items-center w-100 h-100"
+          >
+            <h2 className="isRubik ml-5">React Classic</h2>
             <Image src={ReactIcon}></Image>
           </StyledLink>
         </Card>
         <Card color="#7BD8F1">
-          <h2 className="isRubik">React Hook</h2>
-          <Image src={StartupIcon}></Image>
+          <StyledLink
+            to="/hook"
+            className="d-flex align-items-center w-100 h-100"
+          >
+            <h2 className="isRubik ml-5">React Hook</h2>
+            <Image src={StartupIcon}></Image>
+          </StyledLink>
         </Card>
         <Card color="#FF6961">
-          <h2 className="isRubik">React Testing</h2>
-          <Image src={JestIcon}></Image>
+          <StyledLink
+            to="/hook"
+            className="d-flex align-items-center w-100 h-100"
+          >
+            <h2 className="isRubik ml-5">React Testing</h2>
+            <Image src={JestIcon}></Image>
+          </StyledLink>
         </Card>
       </MainContainer>
     );

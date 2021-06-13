@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container } from "react-bootstrap";
-import { Logo } from "./styles";
+import { Logo, Link } from "./styles";
 import { FaFacebook, FaGithub } from "react-icons/fa";
 
 export default class Footer extends Component {
@@ -18,14 +18,21 @@ export default class Footer extends Component {
             <div className="col-md-4 order-md-0 order-1 text-white">
               <div className="row d-flex align-items-center h-100">
                 <div className="col-6 col-md-12 text-center text-md-right">
-                  <h5>
-                    <FaFacebook></FaFacebook> Facebook
-                  </h5>
+                  <Link
+                    href="https://www.facebook.com/blink.slil"
+                    target="_blank"
+                  >
+                    <h5>
+                      <FaFacebook></FaFacebook> Facebook
+                    </h5>
+                  </Link>
                 </div>
                 <div className="col-6 col-md-12 text-center text-md-right">
-                  <h5>
-                    <FaGithub></FaGithub> GitHub
-                  </h5>
+                  <Link href="https://github.com/slilp" target="_blank">
+                    <h5>
+                      <FaGithub></FaGithub> GitHub
+                    </h5>
+                  </Link>
                 </div>
               </div>
             </div>

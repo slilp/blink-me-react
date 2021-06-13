@@ -10,7 +10,7 @@ export const Card = styled.div`
   position: relative;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  padding: 2rem;
+  /* padding: 2rem; */
   width: 50%;
   cursor: pointer;
   border-radius: 15px;
